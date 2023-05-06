@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title> Monash MSA Gym</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery.validate.js"></script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"></a>
+					<img src="images/logo.png" alt="logo" style="width:160px;height:85px;" align="left">
+					<nav id="nav">
+						<a href="index.html">Home</a>
+						<a href="aboutUs.html">About Us</a>
+						<a href="gymRecords.html">Gym Record Holders</a>
+						<a href="advice.html">Nutritional Advice</a>
+						<a href="booking.html">Booking</a>
+						<a href="login.html">LOG IN</a>
+						
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+			<header>
+				<h1><center>Fill in personal details</center></h1>
+            </header>       
+      <div  class="form">
+    		<form method="post" action="newregister.php"> 
+			    			<p class="contact"><label for="type"> Membership Type</label>
+				 <select class="select-style gender item-type-1"  id="membership" name="membership" required>
+             <option value>Select Membership Type</option>
+		   <option value="1">Monash Student</option>
+             <option value="2">Monash Staff</option>
+            <option value="3">Maragon Pupil</option>
+            <option value="4">Maragon Staff</option>
+            <option value="5">Bastion Pupil</option>
+            </select>
+			</p> 
+			
+			<p class="contact"><label for="name">Username</label> 
+    			<input type="text" name="username" id="username"  required> 
+			</p>
+			
+				<p class="contact"><label for="surname">Password</label> 
+    			 <input type="password" name="pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+				</p>
+				
+				
+    			<p class="contact"><label for="name">Name</label> 
+    			<input type="text" name="name" id="name" minlength="2" pattern="^[a-zA-Z]+" required> 
+				</p>
+				<p class="contact"><label for="surname">Surname</label> 
+    			<input type="text" name="surname" id="surname" minlength="2" pattern="^[a-zA-Z]+" required> 
+				</p>
+    			 
+    			<p class="contact"><label for="email"> Personal Email</label>
+    			<input id="email" input type="text" name="email" placeholder="example@domain.com" type="email" required> 
+				</p> 
+				
+				 <p class="contact"><label for="phone">Mobile phone</label> 
+				<input type="number" id="phonenumber" name="phonenumber" placeholder="083-345-6789" maxlength="10" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+				</p>
+
+             
+				 <p class="contact"><label for="gender"> Gender</label> 
+					<select class="select-style gender item-type-1" name="gender" id="gender" input type="text" required>
+					<option value>Select your gender..</option>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+					<option value="other">Other</option>
+					</select>
+				</p>
+               
+                 <label>Date of Birth</label>
+                <label><input class="birthyear" type="date" name="BirthYear" placeholder="Year" id="BirthYear"required=""></label>
+              
+  
+      
+            
+            <br>
+            <br>
+			
+            <button >Submit</button> 
+   </form> 
+</div>      
+				</div>
+			</section>
+
+		
+
+		<!-- Scripts -->
+			
+			<!--<script src="assets/js/jquery.min.js"></script>-->
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				$("#contactform").validate();
+				$("#textName").keypress(function (e) {
+					var regex = new RegExp(/^[a-zA-Z\s]+$/);
+					var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+					if (regex.test(str)) {
+						return true;
+					}
+					else
+					{
+					e.preventDefault();
+					alert('Please Enter Letters Only');
+					return false;
+					}
+				});
+			</script>
+			<script>
+				jQuery(document).ready(function($){
+						$cf = $('#phonenumber');
+					$cf.blur(function(e){
+						phone = $(this).val();
+						phone = phone.replace(/[^0-9]/g,'');
+						if (phone.length != 10)
+						{						
+							alert('Phone number must be 10 digits.');							
+						}
+						if(phone.indexOf('0')!==0){
+							alert('First number must be 0');
+							$('#phonenumber').val('');
+						}
+					});
+				});
+
+				
+			</script>
+			<script>
+			<?php
+$myServer = "41.188.228.222";
+$myUser = "CS-MBA-1C5Q\Administrator";
+$myPass = "";
+$myDB = "members"; 
+
+//connection to the database
+$dbhandle = mssql_connect($myServer, $myUser, $myPass)
+  or die("Couldn't connect to SQL Server on $myServer"); 
+
+//select a database to work with
+$selected = mssql_select_members($myDB, $dbhandle)
+  or die("Couldn't open database $myDB"); 
+
+//declare the SQL statement that will query the database
+$query = "SELECT * ";
+$query .= "FROM members ";
+$query .= "WHERE MemberShipID ='',Surname = '',Name = '', Gender = '',PhoneNo = '',EmailAddress = '',ResAddress = '',HeartTest = '', MedicalAid = '', MedicalAidNo = '',EmergencyContactPerson = '', EmergencyPersonsContact = '',Membershipcategory = '', StudentNo = '',PaymentMethod = '',MemberValidity = '',"; 
+
+//execute the SQL query and return records
+$result = mssql_query($query);
+
+$numRows = mssql_num_rows($result); 
+echo "<h1>" . $numRows . " Row" . ($numRows == 1 ? "" : "s") . " Returned </h1>"; 
+
+//display the results 
+while($row = mssql_fetch_array($result))
+{
+  echo "<li>" . $row["id"] . $row["name"] . $row["year"] . "</li>";
+}
+//close the connection
+mssql_close($dbhandle);
+?>
+			
+			</script>
+
+	</body>
+</html>

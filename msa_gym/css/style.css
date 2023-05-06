@@ -1,0 +1,91 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+
+/* Open state */
+
+
+/*--banner-start--*/
+.banner1 {
+	
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	min-height: 600px;
+}
+.banner2 {
+	
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	min-height: 600px;
+}
+.banner3 {
+	
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	min-height: 600px;
+}
+.banner4 {
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	min-height: 600px;
+}
+
+.banner5 {
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	min-height: 600px;
+}
+
+.banner{
+	position:relative;
+}
+.down {
+    position: absolute;
+    right: 10%;
+    width: 15%;
+    top: 92.5%;
+}
+.down h3{
+	font-family: 'Play-Regular';
+	padding:10px 20px;
+	margin:0;
+	background:#f94877;
+	color:#fff;
+	font-size:1.5em;
+}
+.down ul{
+	padding:0;
+	margin:0;
+}
+.down ul li{
+	list-style:none;	
+}
+.down ul li a{
+	font-size:15px;
+	color:#fff;
+	background:#0732a2;
+	padding:10px 20px;
+	width:100%;
+}
+
+/*--banner-end--*/
+

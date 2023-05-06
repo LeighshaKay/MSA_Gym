@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<!--
+	Introspect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Monash SA Gym</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"></a>
+					<img src="images/logo.png" alt="logo" style="width:160px;height:85px;" align="left">
+					<nav id="nav">
+						<a href="index.html">Home</a>
+						<a href="aboutUs.html">About Us</a>
+						<a href="gymRecords.html">Gym Record Holders</a>
+						<a href="advice.html">Nutritional Advice</a>
+						<a href="booking.html">Booking</a>
+						<a class="active" href="login.html">LOG IN</a>
+						
+					</nav>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" >
+				<div class="inner">
+					<header class="major special">
+						<h1> <center>Log In</center></h1>
+						
+					</header>
+					
+				<div class="login-page">
+  <div class="form">
+    
+    <form class="login-form" action="check.php" method="post">
+    	
+    	<label for="usrname">Username</label>
+    	<input type="text" id="usrname" name="usrname" required>
+    	<label for ="psw"> password</label>
+    	<input type="password" id="psw" placeholder="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8.}" title ="Must contain at least one number and one uppercase and lowercase letter, and at leasy=t 8 or more characters" required>
+
+
+      
+
+
+
+      <button>login</button>
+      <p class="message">Not registered? <a href="register1.html">Register Now</a></p>
+    </form>
+
+  </div>
+  
+</div>
+			</section>
+
+			
+			
+		
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+			
+			$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+}); </script>
+
+	</body>
+</html>
